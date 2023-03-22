@@ -67,10 +67,7 @@ export function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
  * @returns {boolean} Whether or not you can send a signal to the prisoner.
  */
 export function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
-  archerIsAwake = false;
-  prisonerIsAwake = true;
-
-  return true;
+  return prisonerIsAwake && !archerIsAwake;
 }
 
 /**
@@ -89,10 +86,12 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent
 ) {
-  knightIsAwake = false;
-  archerIsAwake = false;
-  prisonerIsAwake = true;
-  petDogIsPresent = false;
-
-  return true;
+  return (
+    // Annalyn has her pet dog, can only free prisoner if archer is asleep
+    (petDogIsPresent && !archerIsAwake && (knightIsAwake || prisonerIsAwake)) ||
+    // Annalyn has her pet dog, can only free prisoner when everyone is asleep
+    (petDogIsPresent && !archerIsAwake && !knightIsAwake && !prisonerIsAwake) ||
+    // Annalyn does not have her pet dog, can only free prisoner if all are asleep except the prisoner
+    (!petDogIsPresent && prisonerIsAwake && !knightIsAwake && !archerIsAwake)
+  );
 }
