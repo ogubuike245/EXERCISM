@@ -10,10 +10,26 @@
  * @param {string} name
  * @returns {number} time in minutes
  */
-export function timeToMixJuice(name) {
-  throw new Error('Please implement the timeToMixJuice function');
-}
 
+const PURE_STRAWBERRY_JOY = "Pure Strawberry Joy";
+const ENERGIZER = "Energizer";
+const GREEN_GARDEN = "Green Garden";
+const TROPICAL_ISLAND = "Tropical Island";
+const ALL_OR_NOTHING = "All or Nothing";
+export function timeToMixJuice(name) {
+  if (name === PURE_STRAWBERRY_JOY) {
+    return 0.5;
+  } else if (name === ENERGIZER || name === GREEN_GARDEN) {
+    return 1.5;
+  } else if (name === TROPICAL_ISLAND) {
+    return 3;
+  } else if (name === ALL_OR_NOTHING) {
+    return 5;
+  } else {
+    return 2.5;
+  }
+}
+console.log(timeToMixJuice(ALL_OR_NOTHING));
 /**
  * Calculates the number of limes that need to be cut
  * to reach a certain supply.
@@ -23,7 +39,7 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+  throw new Error("Please implement the limesToCut function");
 }
 
 /**
@@ -34,5 +50,5 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  throw new Error("Please implement the remainingOrders function");
 }
