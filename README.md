@@ -1,4 +1,4 @@
 
 
-Welcome To Exercism's JavaScript Track.
+Welcome To Exercism
 
