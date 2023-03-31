@@ -38,9 +38,7 @@ console.log(timeToMixJuice(ALL_OR_NOTHING));
  * @param {string[]} limes
  * @returns {number} number of limes cut
  */
-export function limesToCut(wedgesNeeded, limes) {
-  throw new Error("Please implement the limesToCut function");
-}
+export function limesToCut(wedgesNeeded, limes) {}
 
 /**
  * Determines which juices still need to be prepared after the end of the shift.
