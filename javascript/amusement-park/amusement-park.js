@@ -10,7 +10,8 @@
  * @returns {Visitor} the visitor that was created
  */
 export function createVisitor(name, age, ticketId) {
-  throw new Error('Please implement the createVisitor function.');
+  // return { name: name, age: age, ticketId: ticketId };
+  return Object({ name: name, age: age, ticketId: ticketId });
 }
 
 /**
@@ -19,9 +20,20 @@ export function createVisitor(name, age, ticketId) {
  * @param {Visitor} visitor the visitor with an active ticket
  * @returns {Visitor} the visitor without a ticket
  */
+
+const visitor = {
+  name: "Verena Nardi",
+  age: 45,
+  ticketId: "H32AZ123",
+};
 export function revokeTicket(visitor) {
-  throw new Error('Please implement the revokeTicket function.');
+  if (visitor.hasOwnProperty("ticketId")) {
+    visitor.ticketId = null;
+  }
+  return visitor;
 }
+
+console.log(revokeTicket(visitor));
 
 /**
  * Determines the status a ticket has in the ticket tracking object.
@@ -30,10 +42,37 @@ export function revokeTicket(visitor) {
  * @param {string} ticketId
  * @returns {string} ticket status
  */
+
+const tickets = {
+  "0H2AZ123": null,
+  "23LA9T41": "Verena Nardi",
+};
+
+// export function ticketStatus(tickets, ticketId) {
+//   switch (tickets[ticketId]) {
+//     case undefined:
+//       return "unknown ticket id";
+//     case null:
+//       return "not sold";
+//     default:
+//       return `sold to ${tickets[ticketId]}`;
+//   }
+
+// }
+
 export function ticketStatus(tickets, ticketId) {
-  throw new Error('Please implement the ticketStatus function.');
+  if (tickets[ticketId] === undefined) {
+    return "unknown ticket id";
+  } else if (tickets[ticketId] === null) {
+    return "not sold";
+  } else {
+    return `sold to ${tickets[ticketId]}`;
+  }
 }
 
+console.log(ticketStatus(tickets, "23LA9T45"));
+console.log(ticketStatus(tickets, "0H2AZ123"));
+console.log(ticketStatus(tickets, "23LA9T41"));
 /**
  * Determines the status a ticket has in the ticket tracking object
  * and returns a simplified status message.
@@ -43,7 +82,11 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  throw new Error('Please implement the simpleTicketStatus function.');
+  if (tickets[ticketId] === undefined || tickets[ticketId] === null) {
+    return "invalid ticket !!!";
+  } else {
+    return `${tickets[ticketId]}`;
+  }
 }
 
 /**
@@ -52,6 +95,27 @@ export function simpleTicketStatus(tickets, ticketId) {
  * @param {VisitorWithGtc} visitor
  * @returns {string | undefined} version
  */
+
+const visitorNew = {
+  name: "Verena Nardi",
+  age: 45,
+  ticketId: "H32AZ123",
+  gtc: {
+    signed: true,
+    version: "2.1",
+  },
+};
+
+const visitorOld = {
+  name: "Verena Nardi",
+  age: 45,
+  ticketId: "H32AZ123",
+};
+
 export function gtcVersion(visitor) {
-  throw new Error('Please implement the gtcVersion function.');
+  return visitor?.gtc?.version;
 }
+
+console.log(gtcVersion(visitorNew));
+
+console.log(gtcVersion(visitorOld));
