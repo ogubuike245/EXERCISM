@@ -23,8 +23,16 @@ console.log(twoSum([1, 2, 3], [0, 7]));
  * @returns {boolean} whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
-  throw new Error("Implement the luckyNumber function");
+  const temp = String(value);
+
+  const trimmedAndLowercased = temp.trim().toLowerCase();
+
+  const reversedString = trimmedAndLowercased.split("").reverse().join("");
+
+  return reversedString === trimmedAndLowercased;
 }
+
+console.log(luckyNumber(1441));
 
 /**
  * Determines the error message that should be shown to the user
