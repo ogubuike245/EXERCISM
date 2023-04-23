@@ -23,6 +23,9 @@ console.log(twoSum([1, 2, 3], [0, 7]));
  * @returns {boolean} whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
+  // if (typeof value !== "number" || !Number.isInteger(value) || value <= 0) {
+  //   throw new Error("Input must be a positive integer.");
+  // }
   const temp = String(value);
 
   const trimmedAndLowercased = temp.trim().toLowerCase();
@@ -42,5 +45,16 @@ console.log(luckyNumber(1441));
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  throw new Error("Implement the errorMessage function");
+  switch (true) {
+    case !input:
+      return "Required field";
+
+    case !Number(input) || Number(input) === 0:
+      return "Must be a number besides 0";
+
+    default:
+      return "";
+  }
 }
+
+console.log(errorMessage("abc"));
