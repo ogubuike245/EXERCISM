@@ -28,8 +28,10 @@ console.log(cardTypeCheck([1, 2, 3, 4], cardType));
  * @returns {number} - Number of cards that are either odd or even (depending on `type`)
  */
 export function determineOddEvenCards(stack, type) {
+  // this count array is just for testing purposes to see the code in action via console log
   let count = [];
-  let countRate = 0;
+
+  let countLength = 0;
 
   for (const iterator of stack) {
     if (type === true) {
@@ -37,17 +39,17 @@ export function determineOddEvenCards(stack, type) {
       if (iterator % 2 === 0) {
         console.log(iterator);
         console.log(count.push(iterator));
-        countRate++;
+        countLength++;
       }
     } else if (iterator % 2 !== 0) {
       // Checking for odd cards
       console.log(iterator);
       console.log(count.push(iterator));
       console.log(count.length);
-      countRate++;
+      countLength++;
     }
   }
-  return countRate;
+  return countLength;
 }
 
 console.log(determineOddEvenCards([1, 2, 3, 1, 5, 6], true));
